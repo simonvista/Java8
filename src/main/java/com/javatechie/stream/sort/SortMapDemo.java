@@ -51,5 +51,15 @@ public class SortMapDemo {
 		employeeMap.put(new Employee( 176, "Prakash","Social", 1200000), 120);
 		System.out.println(employeeMap);
 		
+		//use stream()
+		System.out.println("---------------------------------------------------------");
+		employeeMap.entrySet().stream().sorted((o1,o2)->(int) (o1.getKey().getSalary()-o2.getKey().getSalary())).forEach(x->System.out.println(x.getKey()+", "+x.getValue())); //ascending
+		System.out.println("---------------------------------------------------------");
+		//employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey((o1,o2)-> (int) (o2.getSalary()-o1.getSalary()))).forEach(x->System.out.println(x.getKey()+", "+x.getValue())); //descending
+		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary))).forEach(x->System.out.println(x.getKey()+", "+x.getValue()));
+		System.out.println("---------------------------------------------------------");
+		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSalary).reversed())).forEach(x->System.out.println(x.getKey()+", "+x.getValue())); //reversed order
+		System.out.println("---------------------------------------------------------");
+		employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getDept).reversed())).forEach(x->System.out.println(x.getKey()+", "+x.getValue())); //reversed order
 	}
 }
