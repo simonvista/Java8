@@ -30,18 +30,21 @@ public class SortListDemo {
 		List<Employee> employees=DataBase.getEmployees();
 		
 		//traditional way to sort
-		Collections.sort(employees, new MyComparator());		
+		Collections.sort(employees, new Comparator<Employee>() {
+
+			@Override
+			public int compare(Employee o1, Employee o2) {				
+				//return (int) (o1.getSalary()-o2.getSalary()); //ascending
+				return (int) (o2.getSalary()-o1.getSalary()); //descending
+			}});		
 		System.out.println(employees);		
 		
 	}
 }
-class MyComparator implements Comparator<Employee>{
-
-	@Override
-	public int compare(Employee o1, Employee o2) {
-		//return (int) (o1.getSalary()-o2.getSalary()); //ascending
-		return (int) (o2.getSalary()-o1.getSalary()); //descending
-	}
-
-	
-}
+/*
+ * class MyComparator implements Comparator<Employee>{
+ * 
+ * @Override public int compare(Employee o1, Employee o2) { //return (int)
+ * (o1.getSalary()-o2.getSalary()); //ascending return (int)
+ * (o2.getSalary()-o1.getSalary()); //descending } }
+ */
