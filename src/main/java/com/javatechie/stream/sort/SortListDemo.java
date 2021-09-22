@@ -44,10 +44,21 @@ public class SortListDemo {
 //		Collections.sort(employees, (o1,o2)->(int) (o2.getSalary()-o1.getSalary())); //descending
 //		System.out.println(employees);	
 		
-		//use stream API
+		//use stream API w/o method reference
 		employees.stream().sorted((o1,o2)->(int) (o1.getSalary()-o2.getSalary())).forEach(System.out::println); //ascending
+		System.out.println("----------------------------------------------------------------------");
 		employees.stream().sorted((o1,o2)->(int) (o2.getSalary()-o1.getSalary())).forEach(System.out::println); //descending
+		System.out.println("----------------------------------------------------------------------");
 		
+		//use stream API w/ method reference w/o lambda expression
+		employees.stream().sorted(Comparator.comparing(emp->emp.getSalary())).forEach(System.out::println); //ascending;
+		System.out.println("----------------------------------------------------------------------");
+		
+		//use stream API w/ method reference w/ lambda expression
+		employees.stream().sorted(Comparator.comparing(Employee::getName)).forEach(System.out::println); //ascending sort by name;
+		System.out.println("----------------------------------------------------------------------");
+		employees.stream().sorted(Comparator.comparing(Employee::getDept)).forEach(System.out::println); //ascending sort by department;
+		System.out.println("----------------------------------------------------------------------");
 	}
 }
 /*
