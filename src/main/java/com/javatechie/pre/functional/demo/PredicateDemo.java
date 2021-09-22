@@ -1,18 +1,17 @@
 package com.javatechie.pre.functional.demo;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Predicate;
 
-public class PredicateDemo implements Predicate<Integer> {
+public class PredicateDemo {
 
-	@Override
-	public boolean test(Integer t) {
-		if(t%2==0) {
-			return true;
-		}
-		return false;
-	}
 	public static void main(String[] args) {
-		Predicate<Integer> predicate=new PredicateDemo();
-		System.out.println(predicate.test(4));
+		Predicate<Integer> predicate=t->t%2==0;
+		System.out.println(predicate.test(32));
+		
+		List<Integer> list1=Arrays.asList(1,2,3,4,5);
+		//filter() uses Predicate as parameter
+		list1.stream().filter(t->t%2==0).forEach(System.out::println);
 	}
 }
