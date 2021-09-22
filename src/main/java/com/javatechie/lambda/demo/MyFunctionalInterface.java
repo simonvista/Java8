@@ -1,4 +1,4 @@
-package com.javatechie.java8_tutorial;
+package com.javatechie.lambda.demo;
 
 //FunctionalInterface, which has default and static methods, has only one abstract method
 //@FunctionalInterface is optional

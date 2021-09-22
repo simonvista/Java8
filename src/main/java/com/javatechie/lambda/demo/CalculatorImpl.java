@@ -1,4 +1,4 @@
-package com.javatechie.java8_tutorial;
+package com.javatechie.lambda.demo;
 
 //@FunctionalInterface
 interface Calculator{
@@ -26,6 +26,6 @@ public class CalculatorImpl {
 				return i2-i1;
 			}
 		};
-		System.out.println(calculator.substract(30, 9)); 
+		System.out.println(calculator.substract(3, 9)); 
 	}
 }

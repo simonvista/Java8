@@ -1,4 +1,4 @@
-package com.javatechie.java8_tutorial;
+package com.javatechie.lambda.demo;
 
 public class FunIDemo implements Runnable {
 
