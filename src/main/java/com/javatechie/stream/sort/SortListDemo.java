@@ -39,10 +39,14 @@ public class SortListDemo {
 //		  System.out.println(employees)		 	
 		
 		//lambda expression
-		Collections.sort(employees, (o1,o2)->(int) (o1.getSalary()-o2.getSalary())); //ascending
-		System.out.println(employees);	
-		Collections.sort(employees, (o1,o2)->(int) (o2.getSalary()-o1.getSalary())); //descending
-		System.out.println(employees);				
+//		Collections.sort(employees, (o1,o2)->(int) (o1.getSalary()-o2.getSalary())); //ascending
+//		System.out.println(employees);	
+//		Collections.sort(employees, (o1,o2)->(int) (o2.getSalary()-o1.getSalary())); //descending
+//		System.out.println(employees);	
+		
+		//use stream API
+		employees.stream().sorted((o1,o2)->(int) (o1.getSalary()-o2.getSalary())).forEach(System.out::println); //ascending
+		employees.stream().sorted((o1,o2)->(int) (o2.getSalary()-o1.getSalary())).forEach(System.out::println); //descending
 		
 	}
 }
