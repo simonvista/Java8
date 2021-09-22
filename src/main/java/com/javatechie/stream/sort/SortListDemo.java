@@ -29,15 +29,20 @@ public class SortListDemo {
 		//use stream to sort class object by salary
 		List<Employee> employees=DataBase.getEmployees();
 		
-		//traditional way to sort
-		Collections.sort(employees, new Comparator<Employee>() {
-
-			@Override
-			public int compare(Employee o1, Employee o2) {				
-				//return (int) (o1.getSalary()-o2.getSalary()); //ascending
-				return (int) (o2.getSalary()-o1.getSalary()); //descending
-			}});		
-		System.out.println(employees);		
+		//traditional way to sort		
+//		  Collections.sort(employees, new Comparator<Employee>() {
+//		  
+//		  @Override public int compare(Employee o1, Employee o2) { 
+//		  return (int) (o1.getSalary()-o2.getSalary()); //ascending		   
+//		  return (int) (o2.getSalary()-o1.getSalary()); //descending 
+//		  }});
+//		  System.out.println(employees)		 	
+		
+		//lambda expression
+		Collections.sort(employees, (o1,o2)->(int) (o1.getSalary()-o2.getSalary())); //ascending
+		System.out.println(employees);	
+		Collections.sort(employees, (o1,o2)->(int) (o2.getSalary()-o1.getSalary())); //descending
+		System.out.println(employees);				
 		
 	}
 }
