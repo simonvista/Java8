@@ -41,13 +41,9 @@ public class SortMapDemo {
 		
 		//more complex map
 		System.out.println("---------------------------------------------------------");
-		Map<Employee,Integer> employeeMap=new TreeMap<>(new Comparator<Employee>() {
-
-			@Override
-			public int compare(Employee o1, Employee o2) {
-				return (int) (o1.getSalary()-o2.getSalary());
-			}
-		});
+//		Map<Employee,Integer> employeeMap=new TreeMap<>((o1,o2)-> (int) (o1.getSalary()-o2.getSalary())); //ascending
+		Map<Employee,Integer> employeeMap=new TreeMap<>((o1,o2)-> (int) (o2.getSalary()-o1.getSalary())); //descending
+		
 		employeeMap.put(new Employee(176,"Roshan","IT",600000), 60);
 		employeeMap.put(new Employee(388, "Bikash","Civil", 900000), 90);
 		employeeMap.put(new Employee(470, "Bimal","Defence",500000), 50);
