@@ -30,5 +30,13 @@ public class MapReduceDemo {
 		List<String> strs=Arrays.asList("corejava","spring","hibernate");
 		String longestStr=strs.stream().reduce((s1,s2)->s1.length()>s2.length()?s1:s2).get();
 		System.out.println(longestStr);
+		
+		List<Employee> employees = EmployeeDatabase.getEmployees();
+		//find employee whose grade is A, get salary in double
+		double ave = employees.stream().filter(x->x.getGrade().equalsIgnoreCase("A")).map(x->x.getSalary()).mapToDouble(i->i).average().getAsDouble();
+		System.out.println(ave);
+		//find salary sum of employee whose grade is A
+		double sum3 = employees.stream().filter(x->x.getGrade().equalsIgnoreCase("A")).map(x->x.getSalary()).mapToDouble(i->i).sum();
+		System.out.println(sum3);
 	}
 }
