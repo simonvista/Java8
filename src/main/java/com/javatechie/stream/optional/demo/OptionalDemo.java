@@ -19,7 +19,13 @@ public class OptionalDemo {
 		//System.out.println(ofOptional); //throw exception
 		//Nullable(null)
 		Optional<String> ofNullableOptional=Optional.ofNullable(customer.getEmail());
-		System.out.println(ofNullableOptional); //throw exception
+		if(ofNullableOptional.isPresent()) {
+			System.out.println(ofNullableOptional.get()); //abc | Optional.empty
+		}
+		else {
+			System.out.println(ofNullableOptional); //Optional[abc] | Optional.empty
+		}	
+		
 	}
 
 }
