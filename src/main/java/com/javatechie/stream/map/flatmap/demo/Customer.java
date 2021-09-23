@@ -1,12 +1,17 @@
 package com.javatechie.stream.map.flatmap.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Customer {
 	private int id;
 	private String name;
 	private String email;
 	private List<String> phoneNumbers;
+	
+	public Customer() {
+		super();
+	}
 	public Customer(int id, String name, String email, List<String> phoneNumbers) {
 		super();
 		this.id = id;
@@ -29,6 +34,9 @@ public class Customer {
 	public String getEmail() {
 		return email;
 	}
+//	public Optional<String> getEmail() {
+//		return Optional.ofNullable(email);
+//	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
